@@ -1,0 +1,78 @@
+.copyBtn {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #888;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  flex-shrink: 0;
+  touch-action: manipulation;
+}
+
+.copyBtn:hover, .copyBtn:active {
+  color: #ffffff;
+  background: #222;
+}
+
+.savings {
+  color: #10a37f;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+}
+
+.addToCartBtn {
+  flex: 1;
+  background: #101010;
+  border: 1px solid #333;
+  color: #ffffff;
+  padding: 18px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  touch-action: manipulation;
+}
+
+.addToCartBtn:hover, .addToCartBtn:active {
+  background: #161616;
+}
+
+.note {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .buttonGroup {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .addToCartBtn {
+    padding: 16px;
+    font-size: 15px;
+    min-height: 52px;
+  }
+  
+  .note {
+    font-size: 12px;
+    margin-top: 14px;
+  }
+}

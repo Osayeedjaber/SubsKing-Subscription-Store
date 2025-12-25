@@ -1,0 +1,158 @@
+.about {
+  padding: 70px 24px;
+  background: #0d0d0d;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.description {
+  font-size: 16px;
+  color: #777;
+  max-width: 550px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.feature {
+  background: #141414;
+  border: 1px solid #222;
+  border-radius: 18px;
+  padding: 32px 20px;
+  touch-action: manipulation;
+}
+
+.feature:hover, .feature:active {
+  border-color: #2a2a2a;
+}
+
+.featureIcon {
+  width: 56px;
+  height: 56px;
+  background: rgba(226, 19, 110, 0.1);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  color: #e2136e;
+}
+
+.featureTitle {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.featureDesc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .about {
+    padding: 56px 16px;
+  }
+  
+  .title {
+    font-size: 26px;
+  }
+  
+  .description {
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+  
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .feature {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+  
+  .featureIcon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 14px;
+  }
+  
+  .featureTitle {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  
+  .featureDesc {
+    font-size: 13px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .about {
+    padding: 48px 16px;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+    padding: 20px;
+  }
+  
+  .featureIcon {
+    margin: 0;
+    flex-shrink: 0;
+  }
+  
+  .featureText {
+    flex: 1;
+  }
+  
+  .featureTitle {
+    margin-bottom: 4px;
+  }
+  
+  .featureDesc {
+    font-size: 12px;
+  }
+}

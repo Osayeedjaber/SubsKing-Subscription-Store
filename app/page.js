@@ -1,66 +1,107 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import { useState } from 'react';
+import { products, getProductsByCategory } from '@/data/config';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import ProductCarousel from '@/components/ProductCarousel';
+import QuickBuyModal from '@/components/QuickBuyModal';
+import Cart from '@/components/Cart';
+import StatsSection from '@/components/StatsSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import AboutSection from '@/components/AboutSection';
+import FAQSection from '@/components/FAQSection';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 export default function Home() {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  const openModal = (product) => {
+    setSelectedProduct(product);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setTimeout(() => setSelectedProduct(null), 200);
+  };
+
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
+
+  const removeFromCart = (index) => {
+    setCartItems(cartItems.filter((_, i) => i !== index));
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  const aiProducts = getProductsByCategory('ai');
+  const streamingProducts = getProductsByCategory('streaming');
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Header 
+        cartCount={cartItems.length} 
+        onCartClick={() => setCartOpen(true)} 
+      />
+
+      <main className="main">
+        <Hero onProductClick={openModal} />
+
+        <StatsSection />
+
+        <div id="products">
+          <ProductCarousel 
+            title="AI Tools" 
+            products={aiProducts}
+            onProductClick={openModal}
+          />
+        </div>
+
+        <ProductCarousel 
+          title="Streaming Platforms" 
+          products={streamingProducts}
+          onProductClick={openModal}
         />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+
+        <ProductCarousel 
+          title="All Subscriptions" 
+          products={products}
+          onProductClick={openModal}
+        />
+
+        <TestimonialsSection />
+
+        <AboutSection />
+
+        <FAQSection />
+
+        <ContactSection />
       </main>
-    </div>
+
+      <Footer />
+
+      <QuickBuyModal 
+        product={selectedProduct}
+        isOpen={modalOpen}
+        onClose={closeModal}
+        onAddToCart={addToCart}
+      />
+
+      <Cart 
+        items={cartItems}
+        isOpen={cartOpen}
+        onClose={() => setCartOpen(false)}
+        onRemove={removeFromCart}
+        onClear={clearCart}
+      />
+    </>
   );
 }

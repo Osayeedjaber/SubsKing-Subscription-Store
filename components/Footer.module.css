@@ -1,0 +1,317 @@
+.footer {
+  background: #080808;
+  border-top: 1px solid #1a1a1a;
+  padding: 60px 24px 30px;
+  padding-bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #e2136e, #ff6b35);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Social Links */
+.socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.socialLink {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #141414;
+  border: 1px solid #252525;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  touch-action: manipulation;
+}
+
+.socialLink:hover, .socialLink:active {
+  background: #1a1a1a;
+  border-color: #e2136e;
+  color: #e2136e;
+}
+
+.bkashBox {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(226, 19, 110, 0.08);
+  border: 1px solid rgba(226, 19, 110, 0.15);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-top: 10px;
+}
+
+.bkashIcon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.bkashLabel {
+  display: block;
+  font-size: 11px;
+  color: #666;
+}
+
+.bkashNumber {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin-top: 3px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.columnTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list a {
+  color: #666;
+  font-size: 14px;
+  padding: 4px 0;
+  display: block;
+}
+
+.list a:hover, .list a:active {
+  color: #ffffff;
+}
+
+.contactList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactList li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+.contactList svg {
+  color: #e2136e;
+  flex-shrink: 0;
+}
+
+.whatsappBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366;
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  min-height: 50px;
+  touch-action: manipulation;
+}
+
+.whatsappBtn:hover, .whatsappBtn:active {
+  opacity: 0.9;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px solid #1a1a1a;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.bottom p {
+  color: #444;
+  font-size: 13px;
+}
+
+.badges {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.badges span {
+  color: #666;
+  font-size: 13px;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 16px 24px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  
+  .logo {
+    font-size: 24px;
+  }
+  
+  .tagline {
+    font-size: 13px;
+  }
+  
+  .socials {
+    gap: 10px;
+  }
+  
+  .socialLink {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .bkashBox {
+    padding: 14px 16px;
+  }
+  
+  .bkashNumber {
+    font-size: 16px;
+  }
+  
+  .columnTitle {
+    font-size: 13px;
+  }
+  
+  .list a {
+    font-size: 13px;
+  }
+  
+  .contactList li {
+    font-size: 13px;
+  }
+  
+  .bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+  
+  .badges {
+    justify-content: center;
+    gap: 14px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 550px) {
+  .footer {
+    padding: 44px 16px 20px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .brand {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .socials {
+    justify-content: center;
+  }
+  
+  .column {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .list, .contactList {
+    align-items: center;
+  }
+  
+  .contactList li {
+    justify-content: center;
+  }
+  
+  .whatsappBtn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .bkashBox {
+    justify-content: center;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .bottom p {
+    font-size: 12px;
+  }
+  
+  .badges span {
+    font-size: 12px;
+  }
+}
